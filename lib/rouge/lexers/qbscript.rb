@@ -33,9 +33,9 @@ module Rouge
         rule %r(\n), Text
         rule %r([^\S\n]), Text
 
-        rule %r((break|else|elseif|if|repeat|return|random|useheap|switch|case|default|<\.\.\.>)\b)i, Keyword
+        rule %r((break|else|elseif|if|repeat|return|random|useheap|switch|case|default|script|<\.\.\.>)\b)i, Keyword
 
-        rule %r(\{(?=[A-Za-z]+\s+(_|[A-Za-z][A-Za-z0-9_]*)\s*=\s*[^;]+;)), Punctuation, :qbstruct
+        rule %r(\{(?=\s*[A-Za-z]+\s+(_|[A-Za-z][A-Za-z0-9_]*)\s*=\s*[^;]+;)), Punctuation, :qbstruct
         rule %r((==|!=|<=|>=|&&|\|\||[=+\-*/%^<>!])), Operator
         rule %r([\[\]\{\}\(\)\.,:;]), Punctuation
 
