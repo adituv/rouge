@@ -48,9 +48,15 @@ module Rouge
       end
 
       state :qbstruct do
-        rule %r((int|float|vector2|vector3|string|wstring|struct|array|qbkey|qbkeyref|stringptr|stringqs)\b)i, Keyword
         rule %r(\}), Punctuation, :pop!
+        mixin :qbtype
         mixin :root
+      end
+
+      state :qbtype do
+        rule %r((int|float|vector2|vector3|string|wstring|struct|qbkey|qbkeyref|stringptr|stringqs|array)\b)i, Keyword
+        rule %r(<), Punctuation, :qbtype
+        rule %r(>), Punctuation, :pop!
       end
 
       state :escape_sqs do
