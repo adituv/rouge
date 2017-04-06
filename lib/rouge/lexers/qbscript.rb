@@ -41,7 +41,7 @@ module Rouge
 
         rule %r(_), Name
         rule %r([A-Za-z][A-Za-z0-9_]*), Name
-        rule %r($[0-9a-fA-F]{8}), Name
+        rule %r(\$[0-9a-fA-F]{8}), Name
 
         rule %r('), Str::Single, :escape_sqs
         rule %r("), Str::Double, :escape_dqs
